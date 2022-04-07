@@ -1,0 +1,7 @@
+.notes-app{
+    display: grid;
+    grid-template-columns: 20% 1fr 1fr 1fr;
+    grid-template-areas: 'navbar navbar navbar navbar'
+    'sidebar notes-area notes-area notes-area'
+    ;
+}

@@ -1,0 +1,9 @@
+.navbar{
+    grid-area: navbar;
+}
+
+.icons {
+    cursor: pointer;
+    font-size: 2.4rem;
+    color: var(--pure-white);
+}

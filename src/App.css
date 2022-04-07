@@ -1,0 +1,34 @@
+html {
+  height: 100%;
+}
+
+:root {
+  --primary-color: #45cbb2;
+  --dark-primary: #31b79e;
+  --primary-second: #e56b6f;
+  --grey: #9a9a9a;
+  --dark-grey: #868686;
+  --lynx-grey: #c5c5c5;
+  --bg-color: #fbfbff;
+  --pure-white: white;
+  --coffee: #3e2f34;
+  --dark-coffee: #2f2327;
+  --sm-space: 1.2rem;
+  --md-space: 2.4rem;
+  --lg-space: 3.2rem;
+}
+
+body {
+  min-height: 100%;
+  height: 100vh;
+  background-color: var(--bg-color);
+}
+
+.App,
+.homepage {
+  min-height: 100%;
+}
+
+#root {
+  min-height: 100%;
+}
