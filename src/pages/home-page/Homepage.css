@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@800&display=swap');
+
+.homepage{
+    display: grid;
+    place-items: center;
+}
+
+.hero-section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.hero-left,.auth-container{
+    display: grid;
+    place-items: center;
+    height: 100%;
+}
+
+.hero-left{
+    background-color: var(--primary-color);
+    color: var(--coffee);
+    font-family: 'Dosis', sans-serif;
+    font-size: 4.8em;
+}
+.hero-img{
+    width: 100%;
+}
+
+.App,.hero-section{
+    height: 100vh;
+    width: 100%;
+}

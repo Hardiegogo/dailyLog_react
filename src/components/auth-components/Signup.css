@@ -1,0 +1,25 @@
+.auth-wrapper{
+    width: fit-content;
+    min-width: 30rem;
+    background-color: var(--pure-white);
+    text-align: left;
+}
+
+.input-primary{
+    border: 2px solid var(--primary-color);
+    width: 100%;
+}
+
+.link-secondary,.link-primary{
+    font-size: 1.2rem;
+    display: block;
+}
+
+.auth_options{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-primary{
+    width: 100%;
+}
