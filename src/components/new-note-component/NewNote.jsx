@@ -3,20 +3,22 @@ import { addNote } from "../../utils/notes-util/addNote";
 import { useNotes } from "../../context/useNotes";
 import "./NewNote.css";
 
+const initialNoteState={
+  _id: "",
+  title: "",
+  description: "",
+  color: "",
+  tags: [],
+  createdAt:
+    new Date().getFullYear() +
+    "-" +
+    (new Date().getMonth() + 1) +
+    "-" +
+    new Date().getDate(),
+}
+
 const NewNote = ({createNoteState:{createNote,setCreateNote}}) => {
-  const [tempNote, setTempNote] = useState({
-    _id: "",
-    title: "",
-    description: "",
-    color: "",
-    tags: [],
-    createdAt:
-      new Date().getFullYear() +
-      "-" +
-      (new Date().getMonth() + 1) +
-      "-" +
-      new Date().getDate(),
-  });
+  const [tempNote, setTempNote] = useState(initialNoteState);
   const changeHandler = (e) => {
     setTempNote((prevState) => {
       return { ...prevState, [e.target.name]: e.target.value };
