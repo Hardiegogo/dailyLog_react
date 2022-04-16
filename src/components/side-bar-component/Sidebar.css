@@ -1,0 +1,21 @@
+.sidebar {
+  grid-area: sidebar;
+  width: 100%;
+}
+.stacked-list {
+  width: 100%;
+ 
+}
+
+.list-item {
+  padding: 2rem 3rem;
+  justify-content: flex-start;
+  color: var(--coffee);
+  font-weight: 500;
+  background-color:  var( --bg-color);
+  font-size: 1.8rem;
+}
+
+.list-icon{
+    color: var(--coffee);
+}

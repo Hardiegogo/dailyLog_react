@@ -5,7 +5,7 @@
     text-align: left;
 }
 
-.input-primary{
+.input-primary,.text-area{
     border: 2px solid var(--primary-color);
     width: 100%;
 }
