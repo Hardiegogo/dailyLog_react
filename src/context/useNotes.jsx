@@ -8,7 +8,7 @@ export const useNotes = () => useContext(NotesContext);
 const initialState = {
   notes: [],
   trashNotes: [],
-  archiveNotes: [],
+  archivedNotes: [],
   currentNote: {
     _id: "",
     title: "",

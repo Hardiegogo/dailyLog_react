@@ -18,4 +18,26 @@
     font-size: 2.4rem;
     color:var(--coffee);
     margin-left: 8px;
+    cursor: pointer;
+}
+
+.active-icon{
+    color: var(--dark-coffee);
+    font-weight: 700;
+}
+
+.btn-danger{
+    background-color: #DC143C;
+    color: var(--pure-white);
+    margin-left: 1rem;
+    
+}
+.btn-success{
+    background-color: #49AF41;
+    color: var(--pure-white);
+    
+}
+.note-footer-icons{
+    display: flex;
+    align-items: center;
 }
