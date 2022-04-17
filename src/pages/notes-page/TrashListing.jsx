@@ -4,19 +4,13 @@ import NoteCard from "../../components/notecard-component/NoteCard";
 import Sidebar from "../../components/side-bar-component/Sidebar";
 import { useNotes } from "../../context/useNotes";
 import "./NotesListing.css";
-import { loadNotes } from "../../utils/notes-util/loadNotes";
 import NewNote from "../../components/new-note-component/NewNote";
 
 
 
-
-const NotesListing = () => {
+const TrashListing = () => {
   const { notesState, dispatchNotes } = useNotes();
   const [createNote,setCreateNote]=useState(false)
-
-  useEffect(()=>{
-    loadNotes(dispatchNotes)
-  },[])
 
   return (
     <div className={`notes-app ${createNote && 'overlay'}`}>
@@ -37,7 +31,7 @@ const NotesListing = () => {
         </div>
         {createNote && <NewNote createNoteState={{createNote,setCreateNote}} />}
         <div className="notes-list">
-          {notesState.notes.map((noteItem)=><NoteCard key={noteItem._id} noteItem={noteItem} isArchived={false}/>)}
+          {notesState.trashNotes.map((noteItem)=><NoteCard key={noteItem._id} noteItem={noteItem} isArchived={false} isTrash={true}/>)}
         </div>
 
       </div>
@@ -45,4 +39,4 @@ const NotesListing = () => {
   );
 };
 
-export default NotesListing;
+export default TrashListing;

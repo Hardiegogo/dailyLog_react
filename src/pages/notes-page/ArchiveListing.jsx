@@ -4,18 +4,17 @@ import NoteCard from "../../components/notecard-component/NoteCard";
 import Sidebar from "../../components/side-bar-component/Sidebar";
 import { useNotes } from "../../context/useNotes";
 import "./NotesListing.css";
-import { loadNotes } from "../../utils/notes-util/loadNotes";
 import NewNote from "../../components/new-note-component/NewNote";
+import { loadArchivedNotes } from "../../utils/notes-util/loadArchivedNotes";
 
 
 
-
-const NotesListing = () => {
+const ArchiveListing = () => {
   const { notesState, dispatchNotes } = useNotes();
   const [createNote,setCreateNote]=useState(false)
 
   useEffect(()=>{
-    loadNotes(dispatchNotes)
+    loadArchivedNotes(dispatchNotes)
   },[])
 
   return (
@@ -37,7 +36,7 @@ const NotesListing = () => {
         </div>
         {createNote && <NewNote createNoteState={{createNote,setCreateNote}} />}
         <div className="notes-list">
-          {notesState.notes.map((noteItem)=><NoteCard key={noteItem._id} noteItem={noteItem} isArchived={false}/>)}
+          {notesState.archivedNotes.map((noteItem)=><NoteCard key={noteItem._id} noteItem={noteItem} isArchived={true}/>)}
         </div>
 
       </div>
@@ -45,4 +44,4 @@ const NotesListing = () => {
   );
 };
 
-export default NotesListing;
+export default ArchiveListing;
