@@ -9,6 +9,7 @@ import NotesListing from "./pages/notes-page/NotesListing";
 import RequiresAuth from "./utils/require-auth/RequiresAuth";
 import ArchiveListing from "./pages/notes-page/ArchiveListing";
 import TrashListing from "./pages/notes-page/TrashListing";
+import LabelListing from "./pages/notes-page/LabelListing";
 
 function App() {
   const {authState}=useAuth()
@@ -21,7 +22,8 @@ function App() {
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/notes" element={<RequiresAuth login={isUserActive}><NotesListing/></RequiresAuth>}/>
         <Route path="/archive" element={<RequiresAuth login={isUserActive}><ArchiveListing/></RequiresAuth>}/>
-        <Route path="/trash" element={<RequiresAuth login={isUserActive}><TrashListing/></RequiresAuth>}/>       
+        <Route path="/trash" element={<RequiresAuth login={isUserActive}><TrashListing/></RequiresAuth>}/>   
+        <Route path="/labels" element={<RequiresAuth login={isUserActive}><LabelListing/></RequiresAuth>}/>      
       </Routes>
     </div>
   );

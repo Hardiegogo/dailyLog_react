@@ -15,9 +15,13 @@ const initialState = {
     description: "",
     color: '#6EE7B7',
     createdAt: "",
-    tags: [],
+    tags: ['low'],
+    filterByPriority:'',
+    sortByDate:''
+
   },
-  editId:''
+  editId:'',
+
 };
 
 export const NotesProvider = ({ children }) => {
