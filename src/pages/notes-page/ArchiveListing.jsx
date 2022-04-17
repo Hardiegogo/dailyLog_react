@@ -36,7 +36,7 @@ const ArchiveListing = () => {
         </div>
         {createNote && <NewNote createNoteState={{createNote,setCreateNote}} />}
         <div className="notes-list">
-          {notesState.archivedNotes.map((noteItem)=><NoteCard key={noteItem._id} noteItem={noteItem} isArchived={true}/>)}
+          {notesState.archivedNotes.map((noteItem)=><NoteCard key={noteItem._id} noteItem={noteItem} isArchived={true} createNoteState={{createNote,setCreateNote}}/>)}
         </div>
 
       </div>

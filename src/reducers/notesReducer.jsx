@@ -36,6 +36,11 @@ export const notesReducer = (state, action) => {
         ...state,
         trashNotes:state.trashNotes.filter((item)=>item._id!==action.trashNote._id)
       }
+    case "SET_EDIT_ID":
+      return{
+        ...state,
+        editId:action.payload
+      }
     default:
       return state;
   }

@@ -1,26 +1,37 @@
 import axios from "axios";
-import React from "react";
+import React,{useState} from "react";
 import { useNotes } from "../../context/useNotes";
 import "./NoteCard.css";
 import { addOrRemoveFromArchive } from "../../utils/notes-util/addOrRemoveFromArchive";
 import { addToTrash } from "../../utils/trash-util/addToTrash";
+import { HexColorPicker } from "react-colorful";
+import { changeColor } from "../../utils/notes-util/changeColor";
 
 const deletePermanently=(trashNote,dispatchNotes)=>{
     dispatchNotes({type:"DELETE_NOTE",trashNote:trashNote})
 }
 
+const editHandler=(_id,dispatchNotes,createNote,setCreateNote)=>{
+    dispatchNotes({type:"SET_EDIT_ID",payload:_id})
+    setCreateNote(!createNote)
+}
+
+
+
 function NoteCard({
   noteItem: { _id, title, description, color, tags, createdAt },
-  isArchived,isTrash
+  isArchived,isTrash,createNoteState:{createNote,setCreateNote}
 }) {
-  const { dispatchNotes } = useNotes();
+  const {dispatchNotes } = useNotes();
+  const [tempColor,setTempColor]=useState('#6EE7B7')
+  const [isColorPicker,setIsColorPicker]=useState(false)
   return (
-    <div className="note-container br-m">
+    <div className={`note-container br-m ${isColorPicker && 'max-height-fixed'}`} style={{backgroundColor:color}}>
       <div className="note-header">
         <div className="note-title small-text">{title}</div>
         <div className="note-header-icons">
           {(!isArchived && !isTrash) && (
-            <button>
+            <button onClick={()=>editHandler(_id,dispatchNotes,createNote,setCreateNote)}>
               <i className="bx bx-edit card-icons"></i>
             </button>
           )}
@@ -36,11 +47,11 @@ function NoteCard({
         <div className="note-date x-small-text grey-text">{createdAt}</div>
         <div className="note-footer-icons">
           {(!isArchived && !isTrash) && (
-            <button>
+            <button onClick={()=>setIsColorPicker(!isColorPicker)}>
               <i className="bx bx-palette card-icons"></i>
             </button>
           )}
-
+          
           {(!isArchived && !isTrash) && (
             <button>
               <i className="bx bx-label card-icons"></i>
@@ -69,6 +80,7 @@ function NoteCard({
           {isTrash && <button className="btn btn-danger" onClick={()=>deletePermanently({ _id, title, description, color, tags, createdAt },dispatchNotes)}>Delete permanently</button>}
         </div>
       </div>
+      {isColorPicker && <HexColorPicker color={tempColor} className="color-picker" onChange={(changedCol)=>changeColor(changedCol,{ _id, title, description, color, tags, createdAt },dispatchNotes)}/>}
     </div>
   );
 }

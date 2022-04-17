@@ -13,10 +13,11 @@ const initialState = {
     _id: "",
     title: "",
     description: "",
-    color: "",
+    color: '#6EE7B7',
     createdAt: "",
     tags: [],
   },
+  editId:''
 };
 
 export const NotesProvider = ({ children }) => {

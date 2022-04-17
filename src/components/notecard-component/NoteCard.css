@@ -3,7 +3,12 @@
     margin: 2.4rem auto;
     padding: 2.4rem;
     display: block;
-    background-color:#6EE7B7
+    background-color:#6EE7B7;
+    height: fit-content;
+    position: relative;
+}
+.max-height-fixed{
+    max-height: 16rem;
 }
 .note-header,.note-footer{
     display: flex;
@@ -40,4 +45,13 @@
 .note-footer-icons{
     display: flex;
     align-items: center;
+    position: relative;
+    height: fit-content;
+}
+
+.color-picker{
+    position: absolute;
+    left: 50%;
+    z-index: 2;
+
 }
