@@ -19,6 +19,7 @@ const FilterBox = () => {
             <option value="low">Low</option>
         </select>
       </div>
+      <button className="btn-large btn-primary mt-24" onClick={()=>dispatchNotes({type:"SET_PRIORITY",payload:''})} >Clear filters</button>
       
     </div>
   );
