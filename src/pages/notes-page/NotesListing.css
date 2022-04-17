@@ -1,7 +1,59 @@
-.notes-app{
-    display: grid;
-    grid-template-columns: 20% 1fr 1fr 1fr;
-    grid-template-areas: 'navbar navbar navbar navbar'
-    'sidebar notes-area notes-area notes-area'
-    ;
+.notes-app {
+  display: grid;
+  grid-template-columns: 20% 1fr 1fr 1fr;
+  grid-template-areas:
+    "navbar navbar navbar navbar"
+    "sidebar notes-area notes-area notes-area";
+  grid-template-rows: 7.2rem 1fr;
+  height: 100%;
+}
+
+.notes-area {
+  grid-area: notes-area;
+  width: 50%;
+  margin-left: 20%;
+}
+
+.notes-search-bar {
+  width: 100%;
+  padding: 1.2rem 3.2rem;
+  border-radius: 10px;
+  border: 1px solid;
+}
+
+.search-bar {
+  display: flex;
+  position: relative;
+}
+
+.search-icon {
+  font-size: 2rem;
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  color: var(--primary-color);
+}
+
+.filter-icon {
+  font-size: 2rem;
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.084);
+}
+
+@media screen and (max-width: 700px) {
+  .notes-app {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "navbar"
+      "sidebar "
+      "notes-area";
+    grid-template-rows: 7.2rem 1fr 1fr; 
+  }
 }

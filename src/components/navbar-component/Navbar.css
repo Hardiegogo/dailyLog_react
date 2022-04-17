@@ -1,5 +1,6 @@
 .navbar{
     grid-area: navbar;
+    height: 7.2rem;
 }
 
 .icons {

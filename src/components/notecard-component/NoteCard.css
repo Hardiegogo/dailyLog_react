@@ -1,0 +1,21 @@
+.note-container{
+    width: 100%;
+    margin: 2.4rem auto;
+    padding: 2.4rem;
+    display: block;
+    background-color:#6EE7B7
+}
+.note-header,.note-footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.note-body{
+    word-wrap: break-word;
+}
+
+.card-icons{
+    font-size: 2.4rem;
+    color:var(--coffee);
+    margin-left: 8px;
+}
