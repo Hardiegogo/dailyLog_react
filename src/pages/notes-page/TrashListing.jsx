@@ -31,7 +31,7 @@ const TrashListing = () => {
         </div>
         {createNote && <NewNote createNoteState={{createNote,setCreateNote}} />}
         <div className="notes-list">
-          {notesState.trashNotes.map((noteItem)=><NoteCard key={noteItem._id} noteItem={noteItem} isArchived={false} isTrash={true}/>)}
+          {notesState.trashNotes.map((noteItem)=><NoteCard key={noteItem._id} noteItem={noteItem} isArchived={false} isTrash={true} createNoteState={{createNote,setCreateNote}}/>)}
         </div>
 
       </div>

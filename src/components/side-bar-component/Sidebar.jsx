@@ -1,7 +1,16 @@
 import React from "react";
 import './Sidebar.css'
 import { Link } from "react-router-dom";
+import { useNotes } from "../../context/useNotes";
+
+const openNewNote=(createNote,setCreateNote,dispatchNotes)=>{
+  dispatchNotes({type:"SET_EDIT_ID",payload:''})
+  setCreateNote(!createNote)
+  
+}
+
 const Sidebar = ({createNoteState:{createNote,setCreateNote}}) => {
+  const {dispatchNotes}=useNotes();
   return (
     <aside className="sidebar p-32">
       <div className="list-container">
@@ -13,7 +22,7 @@ const Sidebar = ({createNoteState:{createNote,setCreateNote}}) => {
           <li className={`list-item stacked-list-item ${createNote && 'overlay'}`}><i class='bx bx-user list-icon'></i>Profile</li>
         </ul>
       </div>
-      <button className='btn-large btn-primary' onClick={()=>setCreateNote(!createNote)}>Create a new Note</button>
+      <button className='btn-large btn-primary' onClick={()=>openNewNote(createNote,setCreateNote,dispatchNotes)}>Create a new Note</button>
     </aside>
   );
 };
