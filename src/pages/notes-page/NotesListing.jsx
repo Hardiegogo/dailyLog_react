@@ -25,22 +25,6 @@ const NotesListing = () => {
     return priorityFilteredNotes
   }
 
-  // const sortPriority=({notesState,filteredNotes})=>{
-  //   let newFilteredProducts=[...filteredNotes].filter((note)=>note.tags[0]===notesState.filterByPriority)
-    
-  //   return newFilteredProducts
-  // }
-
-  // const showNotes=(notesState,dispatchNotes)=>{
-  //   let filteredNotes=[...notesState.notes];
-  //   console.log(filteredNotes)
-  //   const composeReducer=(acc,curr)=>curr(acc);
-  //   const compose=(...fns)=>(x)=>fns.reduce(composeReducer,x)
-  //   filteredNotes=compose(sortPriority)({notesState,filteredNotes})
-  //   return filteredNotes
-  //   // dispatch({type:'SET_FILTERED_NOTES',payload:filteredProducts})
-  // }
-
   const finalFilteredNotes=showNotes()
 
   return (
