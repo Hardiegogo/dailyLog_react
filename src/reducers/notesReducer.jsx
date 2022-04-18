@@ -41,6 +41,12 @@ export const notesReducer = (state, action) => {
         ...state,
         editId:action.payload
       }
+    case "SET_PRIORITY":
+      console.log(action)
+      return{
+        ...state,
+        filterByPriority:action.payload
+      }
     default:
       return state;
   }

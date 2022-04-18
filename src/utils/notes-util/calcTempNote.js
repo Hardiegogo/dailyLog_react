@@ -7,7 +7,7 @@ export const calcTempNote=(notesState)=>{
         title: "",
         description: "",
         color: "",
-        tags: [],
+        tags: ['low'],
         createdAt:
           new Date().getFullYear() +
           "-" +

@@ -8,7 +8,7 @@ import { loadNotes } from "../../utils/notes-util/loadNotes";
 import NewNote from "../../components/new-note-component/NewNote";
 import FilterBox from "../../components/filter-component/FilterBox";
 
-const NotesListing = () => {
+const LabelListing = () => {
   const { notesState, dispatchNotes } = useNotes();
   const [createNote, setCreateNote] = useState(false);
   const [isFilterBox, setIsFilterBox] = useState(false);
@@ -17,15 +17,6 @@ const NotesListing = () => {
     
   }, []);
 
-  const showNotes=()=>{
-    const rawNotes=notesState.notes
-    const priorityFilteredNotes=rawNotes.filter((note)=>{if(notesState.filterByPriority){
-      return note.tags[0]===notesState.filterByPriority
-    }else return true})
-    return priorityFilteredNotes
-  }
-
-  const finalFilteredNotes=showNotes()
 
   return (
      
@@ -48,8 +39,11 @@ const NotesListing = () => {
           <NewNote createNoteState={{ createNote, setCreateNote }} />
         )}
         {isFilterBox && <FilterBox />}
+
+        <h3 className="mt-16">High Priority notes:</h3>
         <div className="notes-list">
-        {finalFilteredNotes
+          {notesState.notes
+            .filter((noteItem) => noteItem.tags[0] === "high")
             .map((noteItem) => (
               <NoteCard
                 key={noteItem._id}
@@ -59,10 +53,22 @@ const NotesListing = () => {
               />
             ))}
         </div>
-
+        <h3 className="mt-16">Low Priority notes:</h3>
+        <div className="notes-list">
+        {notesState.notes
+            .filter((noteItem) => noteItem.tags[0] === "low")
+            .map((noteItem) => (
+              <NoteCard
+                key={noteItem._id}
+                noteItem={noteItem}
+                isArchived={false}
+                createNoteState={{ createNote, setCreateNote }}
+              />
+            ))}
+        </div>
       </div>
     </div>
   );
 };
 
-export default NotesListing
+export default LabelListing
