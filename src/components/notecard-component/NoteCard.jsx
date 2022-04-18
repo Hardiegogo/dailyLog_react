@@ -6,6 +6,7 @@ import { addOrRemoveFromArchive } from "../../utils/notes-util/addOrRemoveFromAr
 import { addToTrash } from "../../utils/trash-util/addToTrash";
 import { HexColorPicker } from "react-colorful";
 import { changeColor } from "../../utils/notes-util/changeColor";
+import { changePriority } from "../../utils/notes-util/changePriority";
 
 const deletePermanently = (trashNote, dispatchNotes) => {
   dispatchNotes({ type: "DELETE_NOTE", trashNote: trashNote });
@@ -16,28 +17,7 @@ const editHandler = (_id, dispatchNotes, createNote, setCreateNote) => {
   setCreateNote(!createNote);
 };
 
-const changePriority=async(note,
-  dispatchNotes)=>{
-    const encodedToken=localStorage.getItem("token")
-    const {_id, title,color, description, tags, createdAt }=note
-    const changedPriority=[...tags][0]==='low'? 'high' : 'low' ;
-    
-    try {
-      const response=await axios({
-        method:"POST",
-        url:`/api/notes/${note._id}`,
-        headers:{authorization:encodedToken},
-        data:{note:{
-          _id, title, description, color, tags:[changedPriority], createdAt 
-        }}
-      })
-      if(response.status===201){
-        dispatchNotes({type:"SET_NOTES",payload:response.data.notes})
-      }
-    } catch (error) {
-      console.log('error occured',error)
-    }
-  }
+
 
 function NoteCard({
   noteItem: { _id, title, description, color, tags, createdAt },
